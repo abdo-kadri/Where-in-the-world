@@ -58,11 +58,9 @@ async function get_abi(){
     for(let i=0;i<data.length;i++){
         data[i]["id"] = i
     }
-    //for(let i=0;i<data_non.length;i++){
-        for(let i=0;i<data.length;i++){
-            //console.log(data[i].id)
-        }
-    //}
+
+   // console.log(data)
+
 
     //show data
     for(let i=0;i<data.length;i++){
@@ -81,6 +79,8 @@ async function get_abi(){
         }
             // show all data by click
             all() 
+            //show all data by search
+            f_search(search.value.toLowerCase()) 
     })
 
     // show all data by click
@@ -105,9 +105,9 @@ function choese(i ,data,ch){
     <div class="w-xs-12"><img src="${data[i]['flags']['png']}" alt=""></div>
     <div class="w-xs-12">
     <h3> - ${data[i]['altSpellings'][ch]} </h3>
-    <p>Populattion :<span class="Populattion">${data[i]['population']}</span></p>
-    <p>Ragiion :<span class="Ragiion">${data[i]['region']}</span></p>
-    <p>Capital :<span class="Capital">${data[i]['capital']}</span></p>
+    <p>Populattion :<span class="Populattion bold">${data[i]['population']}</span></p>
+    <p>Ragiion :<span class="Ragiion bold">${data[i]['region']}</span></p>
+    <p>Capital :<span class="Capital bold">${data[i]['capital']}</span></p>
     </div></div>`
     p_cared.appendChild(a)
     cared = document.querySelectorAll(".k")
@@ -146,21 +146,31 @@ document.querySelector(".mode").addEventListener("click",function(){
 }) 
 
 // search 
-
 search.addEventListener("keyup",(ele)=>{
-    p_cared.innerHTML=""
-    let d = ele.target.value.toLowerCase();
-    for(let i=0;i<data.length;i++){
-            if(data[i]['altSpellings'][1].toLowerCase().includes(d) || data[i]['altSpellings'][2].toLowerCase().includes(d)){
-                creaet(data,i)
-            }else if(data[i]['altSpellings'][0].toLowerCase().includes(d) || data[i]['capital'].includes(d)){
-                creaet(data,i)
-            } }
-            // show all data by click
-            all() 
-    })
-
-
+    //console.log(search)
+    elee = ele.target.value.toLowerCase();
+    f_search(elee)
+})
+function f_search (elee){
+    //ele = search
+let mame =document.querySelector("#list ").value
+p_cared.innerHTML=""
+//console.log(search)
+let d = elee//.target.value.toLowerCase();
+for(let i=0;i<data.length;i++){
+    if(data[i]['region'] == mame ||  mame == "ALL"){
+        if(data[i]['altSpellings'][1].toLowerCase().includes(d) || data[i]['altSpellings'][2].toLowerCase().includes(d)){
+            creaet(data,i)
+        }else if(data[i]['altSpellings'][0].toLowerCase().includes(d) || data[i]['capital'].includes(d)){
+            creaet(data,i)
+        } 
+    }
+    }
+        // show all data by click
+        all() 
+    }    
+    
+    
 // all info about cantry
 function all (){
     cared = document.querySelectorAll(".cared")
@@ -168,8 +178,8 @@ function all (){
     cared.forEach((ele,index)=>{
         
         ele.addEventListener("click",function(){
-        let s= ele.id
-        console.log(s)
+        let s = ele.id
+        //console.log(data[s]['languages'].length)
             document.querySelector(".tools").style.display="none"
             document.querySelector(".p_cared").style.display="none"
             document.querySelector(".all_info").style.display="block"
@@ -178,20 +188,20 @@ function all (){
             
             let a = document.createElement("div")
             
-            a.innerHTML = `<div class="col-xs-10 col-sm-6 center--xs vertical-center img-p"><img class="w-xs-10 img " src="${data[s]['flags']['png']}" alt=""></div>
+            a.innerHTML = `<div class="col-xs-10 puch-xs-1 puch-sm-0 col-sm-6 center--xs vertical-center img-p"><img class="w-xs-10 img " src="${data[s]['flags']['png']}" alt=""></div>
         <div class="col-xs-10 col-sm-6 detailes_info" >
             <h3>${data[s]['altSpellings'][1]}</h3>
             <div class="col-xs-10 col-sm-6">
-                <P>Nativ Name :<span>${data[s]['altSpellings'][1]}</span></P>
-                <P>Populiation : <span>${data[s]['populiation']}</span></P>
-                <P>Region : <span>${data[s]['region']}</span></P>
-                <P>Sup Region : <span></span></P>
-                <P>Capital : <span></span></P>
+                <P>Nativ Name :<span class="bold">${data[s]['altSpellings'][1]}</span></P>
+                <P>Populiation : <span class="bold">${data[s]['population']}</span></P>
+                <P>Region : <span class="bold">${data[s]['region']}</span></P>
+                <P>Sup Region : <span class="bold"></span></P>
+                <P>Capital : <span class="bold"></span></P>
             </div>
             <div class="col-xs-10 col-sm-6">
-                <P>Top Level Domain: <span></span></P>
-                <P>Curencies: <span></span></P>
-                <P>languages: <span></span></P>
+                <P>Top Level Domain: <span class="bold"></span></P>
+                <P>Curencies: <span class="bold"></span></P>
+                <P>languages: <span class="bold"></span></P>
                 
             </div>
             <div class="col-xs-10">

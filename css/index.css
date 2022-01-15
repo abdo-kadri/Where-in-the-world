@@ -61,12 +61,13 @@ body {
   min-height: 500px;
 }
 .big_c .all_info .img-p {
-  height: 500px;
+  margin-top: 50px;
+  height: 300px;
 }
 .big_c .all_info .img-p img {
-  height: 50%;
+  /*height: 50%;*/
   border: solid 1px black;
-  width: 60%;
+  /*width: 60%;*/
 }
 .big_c .all_info .detailes_info {
   height: 400px;
@@ -76,6 +77,10 @@ body {
 @media (max-width: 768px) {
   h1 {
     font-size: 20px;
+  }
+  .big_c .all_info .detailes_info {
+    height: 500px;
+    margin-top: 50px;
   }
 }
 .cared,
@@ -89,6 +94,9 @@ body {
 }
 .mode{
   text-align: center;
+}
+.bold{
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=index.css.map */
