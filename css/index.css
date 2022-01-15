@@ -78,5 +78,9 @@ body {
     font-size: 20px;
   }
 }
+.cared,
+.mode{
+  cursor: pointer;
+}
 
 /*# sourceMappingURL=index.css.map */
