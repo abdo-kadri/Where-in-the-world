@@ -82,5 +82,13 @@ body {
 .mode{
   cursor: pointer;
 }
+.cared:hover,
+.mode:hover{
+  border: solid 1px black;
+  transition-duration: 1.5s;
+}
+.mode{
+  text-align: center;
+}
 
 /*# sourceMappingURL=index.css.map */
