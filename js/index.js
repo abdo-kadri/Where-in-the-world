@@ -150,15 +150,12 @@ document.querySelector(".mode").addEventListener("click",function(){
 search.addEventListener("keyup",(ele)=>{
     p_cared.innerHTML=""
     let d = ele.target.value.toLowerCase();
-
     for(let i=0;i<data.length;i++){
             if(data[i]['altSpellings'][1].toLowerCase().includes(d) || data[i]['altSpellings'][2].toLowerCase().includes(d)){
                 creaet(data,i)
-            } 
-            if(data[i]['altSpellings'][0].toLowerCase().includes(d) || data[i]['capital'].includes(d)){
+            }else if(data[i]['altSpellings'][0].toLowerCase().includes(d) || data[i]['capital'].includes(d)){
                 creaet(data,i)
             } }
-            
             // show all data by click
             all() 
     })
