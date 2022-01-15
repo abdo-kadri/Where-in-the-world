@@ -1,0 +1,82 @@
+:root {
+  --Dark-Blue:hsl(209, 23%, 22%);
+  --Very-Dark-Blue: hsl(207, 26%, 17%);
+  --Very-Dark-Blue: hsl(200, 15%, 8%);
+  --Dark-Gray: hsl(0, 0%, 52%);
+  --Very-Light-Gray: hsl(0, 0%, 98%);
+  --White: hsl(0, 0%, 100%);
+}
+
+/*! i use sass */
+body {
+  font-family: "Nunito Sans", sans-serif;
+}
+
+* {
+  transition-duration: 0.5s;
+}
+
+.container {
+  overflow: hidden;
+}
+
+.big_c {
+  background-color: var(--Very-Light-Gray);
+  color: #080101;
+  padding-top: 50px;
+}
+.big_c .p_cared {
+  min-height: 500PX;
+  overflow: hidden;
+  flex-wrap: wrap;
+}
+.big_c .p_cared .cared {
+  background-color: var(--White);
+  margin: 10px;
+  border-radius: 8px;
+  overflow: hidden;
+  height: 400px;
+  color: #000;
+}
+.big_c .p_cared .cared img {
+  border: solid 1px black;
+}
+.big_c .p_cared .cared > :nth-child(1) {
+  height: 150px;
+}
+.big_c .p_cared .cared > :nth-child(2) {
+  padding: 10px 0px 10px 10px;
+  height: 220px;
+}
+.big_c form *,
+.big_c select {
+  padding: 10px;
+  border-radius: 8px;
+  background-color: transparent;
+  color: inherit;
+  border: none;
+}
+.big_c .all_info {
+  display: none;
+  min-height: 500px;
+}
+.big_c .all_info .img-p {
+  height: 500px;
+}
+.big_c .all_info .img-p img {
+  height: 50%;
+  border: solid 1px black;
+  width: 60%;
+}
+.big_c .all_info .detailes_info {
+  height: 400px;
+  margin-top: 100px;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 20px;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */
